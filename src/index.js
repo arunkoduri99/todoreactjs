@@ -15,12 +15,12 @@ class Todolist extends React.Component{
                         <h2> My To Do List </h2> 
                         <div>
                             <form method="post" onSubmit={this.handleSubmit }>    
-                                <input type="text" name="title" id="title" placeholder="Title..." required value={this.state.task} onChange={this.handletaskchange}/>
+                                <input type="text" autoComplete="off" name="title" id="title" placeholder="Title..." required value={this.state.task} onChange={this.handletaskchange}/>
                                 <input type="submit" className="addBtn" value="submit" style={{ marginBottom: '20px' }}/>
                             </form>
                         </div>
                         <div>
-                            <input type="text" name="search" id="search" placeholder="Search Task..." value={this.state.search} onChange={this.handlesearchchange}/>
+                            <input type="text" autoComplete="off" name="search" id="search" placeholder="Search Task..." value={this.state.search} onChange={this.handlesearchchange}/>
                             <button className="addBtn" onClick={this.handlesearch} style={{ marginBottom: '20px' }}>search</button>
                         </div>
                 </div>
