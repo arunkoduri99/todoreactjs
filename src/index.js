@@ -20,10 +20,8 @@ class Todolist extends React.Component{
                             </form>
                         </div>
                         <div>
-                            <form method="post" onSubmit={this.handlesearch}>
                             <input type="text" name="search" id="search" placeholder="Search Task..." value={this.state.search} onChange={this.handlesearchchange}/>
-                                <input type="submit" className="addBtn" value="search" style={{ marginBottom: '20px' }}/>
-                            </form>
+                            <button className="addBtn" onClick={this.handlesearch} style={{ marginBottom: '20px' }}>search</button>
                         </div>
                 </div>
                 <ul id="myUL">{ this.state.todolist.map((todolist,index)=>{return this.Createlist({'title':todolist.title,'id':index,'toggle':todolist.toggle})})}
@@ -56,7 +54,7 @@ class Todolist extends React.Component{
     
     handlesearch = (event) =>{
         event.preventDefault();
-        const searchinput = this.state.task;
+        const searchinput = this.state.search;
         const todolist = this.state;
         todolist.search=searchinput;
         this.setState(todolist);
@@ -86,7 +84,7 @@ class Todolist extends React.Component{
         let search = this.state.search;
         if (title.toLowerCase().includes(search.toLowerCase())){
             return (
-                <li key={props.id} className={props.toggle ? 'checked' : ''}>{props.title}<span className="deletebtn" style={{ marginLeft: '5px' }} onClick={() => { this.deletelist(props.id); }}>&#x2718;</span><span className="donebtn" onClick={() => { this.toggleClass(props.id); }}>&#x2705;</span><span onClick={() => { this.edit(props.id); }}>&#x270E;</span></li>
+                <li key={props.id} className={props.toggle ? 'checked' : ''}>{props.title}<span className="deletebtn" style={{ marginLeft: '10px' }} onClick={() => { this.deletelist(props.id); }}>&#x2718;</span><span className="donebtn" onClick={() => { this.toggleClass(props.id); }} style={{ marginLeft: '13px' }}>&#x2705;</span><span style={{ marginLeft: '13px' }} onClick={() => { this.edit(props.id); }}>&#x270E;</span></li>
             );
         }
     }
